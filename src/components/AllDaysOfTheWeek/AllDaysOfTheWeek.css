@@ -1,0 +1,16 @@
+.calendar-days {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 40px;
+}
+
+.calendar-days__day-name {
+  font-weight: bold;
+  text-align: left;
+  font-size: 34px;
+  margin: 20px;
+  font-size: 1.25vw;
+  width: 200px;
+  padding: 5px;
+}
