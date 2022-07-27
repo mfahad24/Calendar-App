@@ -1,9 +1,14 @@
 .month-name {
-    text-align: left; 
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-    font-size:50px; 
-    margin: 10px 0px 10px 60px; 
-    padding-bottom: 10px; 
-    border-bottom: 4px solid red; 
+  text-align: left;
+  font-size: 40px;
+  margin: 10px 0px 0px 60px;
+  padding-bottom: 10px;
+  border-bottom: 4px solid red;
+}
+
+/* mobile media queries  */
+@media (max-width: 448px) {
+  .month-name {
+    margin-left: 20px;
+  }
 }

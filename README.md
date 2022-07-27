@@ -3,7 +3,7 @@
 
 A simple calendar app which displays a single month of the year and indicates the current, scheduled, and unscheduled days. For scheduled days, clicking on a tile provides the single event details for that day.
 
-View the live site here: https://www.google.com/ 
+View the live site here: https://calendar-app-2022.herokuapp.com/
 
 
 ## Run Locally
@@ -52,12 +52,15 @@ To run tests, run the following command
 
 ## Future Features
 
-- Ability to add events 
-- Ability for empty event detail popups to "No event details" text
-- Ability to view event type and/or description on each scheduled day
+- Ability to add events
+- Ability for empty event detail popups to show "No event details" text
+- Ability to view event type and/or description on each scheduled day on calendar view
 - Ability to view and scroll through all months of the year 
+- Integration of the frontend with a backend so data can be saved, accessed and deleted 
 ## Screenshots
 
-![Calendar App](public\CalendarApp.PNG)
+![Calendar App](CalendarApp.PNG)
 
-![Calendar App - Event Detail](public\CalendarApp-EventDetail.PNG)
+![Calendar App - Event Detail](CalendarApp-EventDetail.PNG)
+
+![Calendar App - Event Detail](CalendarApp-Mobile.PNG)

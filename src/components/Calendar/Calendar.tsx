@@ -41,15 +41,12 @@ const Calendar: React.FC = (): ReactElement => {
   };
 
   const renderConditionalClasses = (day: Number) => {
-    if (allScheduledDayNumbers.includes(day)) {
+    if (allScheduledDayNumbers.includes(day))
       return " calendar-day-numbers__day-number--scheduled";
-    }
-    if (getCurrentDayNumber() === day) {
+    if (getCurrentDayNumber() === day)
       return " calendar-day-numbers__day-number--today";
-    }
-    if (day === 0) {
+    if (day === 0)
       return " calendar-day-numbers__day-number--not-a-true-day-number";
-    }
     return "";
   };
 

@@ -1,42 +1,60 @@
 .legend-container {
-    display:flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .legend-current-day-container {
-    display: flex;
-    justify-content: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .legend-scheduled__color-indicator {
-    width: 25px; 
-    height: 25px; 
-    background-color: lightgrey;
-    border: 1px solid darkgrey;
+  width: 25px;
+  height: 25px;
+  background-color: lightgrey;
+  border: 1px solid darkgrey;
 }
 
 .legend-current-day__color-indicator {
-    width: 25px; 
-    height: 25px; 
-    background-color: lightblue;
-    border: 1px solid darkgrey;
+  width: 25px;
+  height: 25px;
+  background-color: lightblue;
+  border: 1px solid darkgrey;
 }
 
 .legend-unscheduled__color-indicator {
-    width: 25px; 
-    height: 25px; 
-    background-color: white;
-    border: 1px solid darkgrey; 
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border: 1px solid darkgrey;
 }
 
-.legend-scheduled-container, .legend-unscheduled-container {
-    display: flex;
-    justify-content: row;
-    margin-left: 15px; 
+.legend-scheduled-container,
+.legend-unscheduled-container,
+.legend-current-day-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 15px;
 }
 
-.legend-current-day__text, .legend-scheduled__text, .legend-unscheduled__text {
-    font-weight: bold;
-    margin-left: 15px; 
-    font-size: 18px; 
+.legend-current-day__text,
+.legend-scheduled__text,
+.legend-unscheduled__text {
+  font-weight: bold;
+  margin: 3px 0px 0px 15px;
+  font-size: 18px;
+}
+
+/* mobile media queries  */
+@media (max-width: 448px) {
+  .legend-container {
+    flex-direction: column;
+    margin: 15px 0px 0px 20%;
+  }
+
+  .legend-current-day-container,
+  .legend-scheduled-container,
+  .legend-unscheduled-container {
+    padding: 5px 0px 5px 0px;
+  }
 }

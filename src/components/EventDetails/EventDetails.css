@@ -1,43 +1,55 @@
 .event-details-container {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-    z-index: 10; 
-    animation: fadeIn .75s; 
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  animation: fadeIn 0.75s;
 }
 
 .event-details {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    background-color: white;
-    width: 800px;
-    height: 200px;
-    border-radius: 10px;
-    box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 1px 3px 1px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    font-size: 20px; 
-    text-align: left; 
-    padding-left: 20px; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: white;
+  width: 800px;
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px,
+    rgb(60 64 67 / 15%) 0px 1px 3px 1px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 20px;
+  text-align: left;
+  padding-left: 20px;
 }
 
 .event-details__close {
-    position:absolute; 
-    right: 10px;
-    top: 2px;
-    font-weight: bold; 
-    font-size: 25px; 
-    cursor: pointer; 
-    border: none; 
-    background: none;
+  position: absolute;
+  right: 10px;
+  top: 2px;
+  font-weight: bold;
+  font-size: 25px;
+  cursor: pointer;
+  border: none;
+  background: none;
 }
 
 @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* mobile media queries  */
+@media (max-width: 448px) {
+  .event-details {
+    width: 300px;
+  }
 }

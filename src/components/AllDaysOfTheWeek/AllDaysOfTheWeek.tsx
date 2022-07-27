@@ -1,18 +1,25 @@
-import React from "react";
+import React, { ReactElement } from "react";
+import getWidthDimensionsOfTheWindow from "../WindowWidthDimensions/WindowWidthDimensions";
+import { dayNamesOfTheWeek } from "../../utils/CalendarCalculations";
 import "./AllDaysOfTheWeek.css";
 
-function AllDaysOfTheWeek() {
+const AllDaysOfTheWeek: React.FC = (): ReactElement => {
   return (
     <div className="calendar-days">
-          <div className="calendar-days__day-name">Sunday</div>
-          <div className="calendar-days__day-name">Monday</div>
-          <div className="calendar-days__day-name">Tuesday</div>
-          <div className="calendar-days__day-name">Wednesday</div>
-          <div className="calendar-days__day-name">Thursday</div>
-          <div className="calendar-days__day-name">Friday</div>
-          <div className="calendar-days__day-name">Saturday</div>
-        </div>
+      {dayNamesOfTheWeek.map((singleDayName, index) => {
+        return (
+          <div
+            key={`day-of-the-week${index}`}
+            className="calendar-days__day-name"
+          >
+            {getWidthDimensionsOfTheWindow() <= 480
+              ? singleDayName.split("").slice(0, 2)
+              : singleDayName}
+          </div>
+        );
+      })}
+    </div>
   );
-}
+};
 
 export default AllDaysOfTheWeek;

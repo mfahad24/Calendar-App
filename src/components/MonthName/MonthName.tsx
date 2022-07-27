@@ -5,11 +5,9 @@ import "./MonthName.css";
 const MonthName: React.FC = (): ReactElement => {
   return (
     <>
-    <div className="month-name">
-      {getCurrentMonthName()}
-    </div>
+      <div className="month-name">{getCurrentMonthName()}</div>
     </>
   );
-}
+};
 
 export default MonthName;

@@ -1,4 +1,28 @@
 //all constants
+export const dayNamesOfTheWeek = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+//TODO: to make multi-month change this variable (part 1)
 const firstDayOfTheMonth = "July 1, 2022";
 
 //all exported functions
@@ -6,6 +30,7 @@ export const getNumberOfFilledCellsInCurrentMonth = () => {
   let currentDate = new Date();
   let totalDaysInCurrentMonth = new Date(
     currentDate.getFullYear(),
+    //TODO: to make multi-month, make this dynamic (part 2)
     currentDate.getMonth() + 1,
     0
   ).getDate();
@@ -45,21 +70,8 @@ export const getAllEmptyAndFilledCellsInCurrentMonth = () => {
 };
 
 export const getCurrentMonthName = () => {
-  let monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
   let currentDate = new Date();
+  //TODO: to make multi-month, make this dynamic (part 3)
   return monthNames[currentDate.getMonth()] + " " + currentDate.getFullYear();
 };
 

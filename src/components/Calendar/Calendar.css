@@ -17,14 +17,14 @@
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  padding-bottom: 20px; 
+  padding-bottom: 20px;
 }
 
 .calendar-day-numbers {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding-left: 40px; 
+  padding-left: 40px;
 }
 
 .calendar-day-numbers__day-number {
@@ -35,18 +35,19 @@
   width: 200px;
   height: 60px;
   padding: 6px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  border-radius:10px; 
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 10px;
 }
 
 .calendar-day-numbers__day-number--today {
-    background-color: lightblue;
-    border-radius:10px;
+  background-color: lightblue;
+  border-radius: 10px;
 }
 
 .calendar-day-numbers__day-number--scheduled {
-    background-color: lightgrey;
-    border-radius: 10px; 
+  background-color: lightgrey;
+  border-radius: 10px;
 }
 
 .calendar-day-numbers__day-number:hover {
@@ -57,17 +58,17 @@
 }
 
 .calendar-day-numbers__day-number--type {
-    font-size: 20px; 
+  font-size: 20px;
 }
 
 .calendar-day-numbers__day-number--description {
-    font-size: 16px; 
+  font-size: 16px;
 }
 
 .calendar-day-numbers__day-number--not-a-true-day-number {
-    opacity: 0;
-    cursor: auto !important; 
-    pointer-events: none;
+  opacity: 0;
+  cursor: auto !important;
+  pointer-events: none;
 }
 
 /* media queries  */
@@ -75,13 +76,13 @@
 @media (max-width: 1600px) {
   .calendar-day-numbers__day-number {
     width: 150px;
-    height: 50px;
-    margin: 15px; 
+    height: 45px;
+    margin: 15px;
   }
 
   .calendar-days__day-name {
     width: 150px;
-    margin: 15px; 
+    margin: 15px;
   }
 }
 
@@ -99,12 +100,12 @@
   .calendar-day-numbers__day-number {
     width: 150px;
     height: 40px;
-    margin: 10px; 
+    margin: 10px;
   }
 
   .calendar-days__day-name {
     width: 125px;
-    margin: 10px; 
+    margin: 10px;
   }
 }
 
@@ -112,11 +113,59 @@
   .calendar-day-numbers__day-number {
     width: 100px;
     height: 30px;
-    margin: 5px; 
+    margin: 5px;
   }
 
   .calendar-days__day-name {
     width: 100px;
-    margin: 5px; 
+    margin: 5px;
+  }
+}
+
+/* mobile media queries  */
+/* tested resolutions: 360x800, 360x640, 390x844, 360x780, 414x896*/
+@media (max-width: 448px) {
+  .calendar-days {
+    padding-left: 10px;
+  }
+
+  .calendar-day-numbers {
+    padding-left: 10px;
+  }
+
+  .calendar-day-numbers__day-number {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    font-size: 1.75vh;
+  }
+
+  .calendar-days__day-name {
+    width: 30px;
+    margin: 6px;
+    font-size: 6vw;
+  }
+}
+
+@media (max-width: 405px) {
+  .calendar-days {
+    padding-left: 10px;
+  }
+
+  .calendar-day-numbers {
+    padding-left: 10px;
+  }
+
+  .calendar-day-numbers__day-number {
+    width: 25px;
+    height: 30px;
+    margin: 5px;
+    font-size: 1.75vh;
+  }
+
+  .calendar-days__day-name {
+    width: 25px;
+    margin: 6px;
+    font-size: 6vw;
   }
 }
