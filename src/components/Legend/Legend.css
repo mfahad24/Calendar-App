@@ -42,19 +42,19 @@
 .legend-unscheduled__text {
   font-weight: bold;
   margin: 3px 0px 0px 15px;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 /* mobile media queries  */
 @media (max-width: 448px) {
   .legend-container {
     flex-direction: column;
-    margin: 15px 0px 0px 20%;
+    margin: 10px 0px 0px 20%;
   }
 
   .legend-current-day-container,
   .legend-scheduled-container,
   .legend-unscheduled-container {
-    padding: 5px 0px 5px 0px;
+    padding: 2px 0px 2px 0px;
   }
 }

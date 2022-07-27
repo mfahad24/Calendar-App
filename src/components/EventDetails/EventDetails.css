@@ -1,10 +1,12 @@
 .event-details-container {
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 10;
   animation: fadeIn 0.75s;
+  top: 0;
+  left: 0; 
 }
 
 .event-details {
@@ -18,7 +20,6 @@
   border-radius: 10px;
   box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px,
     rgb(60 64 67 / 15%) 0px 1px 3px 1px;
-  text-align: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -36,6 +37,7 @@
   cursor: pointer;
   border: none;
   background: none;
+  color: black; 
 }
 
 @keyframes fadeIn {
