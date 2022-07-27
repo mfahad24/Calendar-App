@@ -1,9 +1,20 @@
-import React, { ReactElement } from "react";
-import getWidthDimensionsOfTheWindow from "../WindowWidthDimensions/WindowWidthDimensions";
+import React, { ReactElement, useState, useEffect } from "react";
 import { dayNamesOfTheWeek } from "../../utils/CalendarCalculations";
 import "./AllDaysOfTheWeek.css";
 
 const AllDaysOfTheWeek: React.FC = (): ReactElement => {
+  const [widthDimensions, setWidthDimensions] = useState<Number>(
+    window.innerWidth
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      setWidthDimensions(window.innerWidth);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="calendar-days">
       {dayNamesOfTheWeek.map((singleDayName, index) => {
@@ -12,7 +23,7 @@ const AllDaysOfTheWeek: React.FC = (): ReactElement => {
             key={`day-of-the-week${index}`}
             className="calendar-days__day-name"
           >
-            {getWidthDimensionsOfTheWindow() <= 480
+            {widthDimensions <= 480
               ? singleDayName.split("").slice(0, 2)
               : singleDayName}
           </div>
