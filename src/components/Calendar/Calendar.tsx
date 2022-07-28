@@ -2,9 +2,9 @@
 import React, { useState, useEffect, ReactElement } from "react";
 //all component imports
 import MonthName from "../MonthName/MonthName";
-import Legend from "../Legend/Legend";
 import EventDetails from "../EventDetails/EventDetails";
 import AllDaysOfTheWeek from "../AllDaysOfTheWeek/AllDaysOfTheWeek";
+import EventTypeInTile from "../EventTypeInTile/EventTypeInTile";
 
 //util/data imports
 import {
@@ -22,6 +22,17 @@ const Calendar: React.FC = (): ReactElement => {
   >([]);
   const [showEventDetails, setShowEventDetails] = useState<boolean>(false);
   const [clickedDayNumber, setClickedDayNumber] = useState<Number>(0);
+  const [widthDimension, setWidthDimension] = useState<Number>(
+    window.innerWidth
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      setWidthDimension(window.innerWidth);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     allEvents.map((event) => {
@@ -60,7 +71,7 @@ const Calendar: React.FC = (): ReactElement => {
       )}
       <div className="calendar-container">
         <MonthName />
-        <AllDaysOfTheWeek />
+        <AllDaysOfTheWeek widthDimension={widthDimension}/>
         <div className="calendar-day-numbers">
           {getAllEmptyAndFilledCellsInCurrentMonth().map(
             (day: any, index: Number) => {
@@ -73,12 +84,12 @@ const Calendar: React.FC = (): ReactElement => {
                   )}`}
                 >
                   <div>{day}</div>
+                  <EventTypeInTile day={day} widthDimension={widthDimension}/>
                 </div>
               );
             }
           )}
         </div>
-        <Legend />
       </div>
     </>
   );

@@ -15,7 +15,7 @@ const allEvents = [
     name: "Jalen Ramsey",
     date: "07-30-2022",
     description: "A regular checkup with your doctor",
-    type: "Doctor's Appointment",
+    type: "Doctor's Appointment with Dr. Football",
   },
 ];
 
