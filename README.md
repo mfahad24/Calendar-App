@@ -3,7 +3,12 @@
 
 A simple calendar app which displays a single month of the year and indicates the current, scheduled, and unscheduled days. For scheduled days, clicking on a tile provides the single event details for that day.
 
-View the live site here: https://calendar-app-2022.herokuapp.com/
+## Live Site
+
+Production: https://calendar-app-2022.herokuapp.com/
+
+Staging: http://calendar-app-2022-staging.herokuapp.com/
+(which inludes the future features)
 
 
 ## Run Locally
