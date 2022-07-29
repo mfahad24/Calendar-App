@@ -1,0 +1,43 @@
+.all-month-buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+}
+
+.all-month-buttons__single-month {
+  margin: 0px 10px 0px 10px;
+  cursor: pointer;
+}
+
+.all-month-buttons__single-month--inactive-month {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #989898;
+}
+
+.all-month-buttons__single-month--active-month {
+  color: black;
+}
+
+.all-month-buttons__single-month--inactive-circle {
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  cursor: pointer;
+}
+
+.all-month-buttons__single-month--inactive-circle:hover {
+  background-color: red;
+}
+
+.all-month-buttons__single-month--active-circle {
+  background-color: red;
+}

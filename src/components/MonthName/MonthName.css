@@ -4,6 +4,9 @@
   margin: 10px 0px 0px 60px;
   padding-bottom: 10px;
   border-bottom: 4px solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 /* mobile media queries  */

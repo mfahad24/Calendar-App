@@ -6,7 +6,7 @@
   z-index: 10;
   animation: fadeIn 0.75s;
   top: 0;
-  left: 0; 
+  left: 0;
 }
 
 .event-details {
@@ -37,7 +37,7 @@
   cursor: pointer;
   border: none;
   background: none;
-  color: black; 
+  color: black;
 }
 
 @keyframes fadeIn {

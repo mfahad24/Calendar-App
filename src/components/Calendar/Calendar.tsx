@@ -5,6 +5,7 @@ import MonthName from "../MonthName/MonthName";
 import EventDetails from "../EventDetails/EventDetails";
 import AllDaysOfTheWeek from "../AllDaysOfTheWeek/AllDaysOfTheWeek";
 import EventTypeInTile from "../EventTypeInTile/EventTypeInTile";
+import AllMonthButtons from "../AllMonthButtons/AllMonthButtons";
 
 //util/data imports
 import {
@@ -71,7 +72,7 @@ const Calendar: React.FC = (): ReactElement => {
       )}
       <div className="calendar-container">
         <MonthName />
-        <AllDaysOfTheWeek widthDimension={widthDimension}/>
+        <AllDaysOfTheWeek widthDimension={widthDimension} />
         <div className="calendar-day-numbers">
           {getAllEmptyAndFilledCellsInCurrentMonth().map(
             (day: any, index: Number) => {
@@ -84,12 +85,13 @@ const Calendar: React.FC = (): ReactElement => {
                   )}`}
                 >
                   <div>{day}</div>
-                  <EventTypeInTile day={day} widthDimension={widthDimension}/>
+                  <EventTypeInTile day={day} widthDimension={widthDimension} />
                 </div>
               );
             }
           )}
         </div>
+        <AllMonthButtons />
       </div>
     </>
   );

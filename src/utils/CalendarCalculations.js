@@ -8,7 +8,7 @@ export const dayNamesOfTheWeek = [
   "Friday",
   "Saturday",
 ];
-const monthNames = [
+export const monthNames = [
   "January",
   "February",
   "March",
@@ -23,7 +23,7 @@ const monthNames = [
   "December",
 ];
 //TODO: to make multi-month change this variable (part 1)
-const firstDayOfTheMonth = "July 1, 2022";
+export let firstDayOfTheMonth = "July 1, 2022";
 
 //all exported functions
 export const getNumberOfFilledCellsInCurrentMonth = () => {

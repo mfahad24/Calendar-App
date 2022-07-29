@@ -1,3 +1,4 @@
 .event-type-in-tile {
-  font-size: 18px;
+  font-size: 17px;
+  white-space: nowrap;
 }

@@ -26,14 +26,3 @@ test("all days of the week are rendered", () => {
   expect(friday).toBeInTheDocument();
   expect(saturday).toBeInTheDocument();
 });
-
-test("all three legend items are rendered", () => {
-  render(<Calendar />);
-  const currentDay = screen.getByText("Current Day");
-  const scheduledDay = screen.getByText("Scheduled Day");
-  const unscheduledDay = screen.getByText("Unscheduled Day");
-
-  expect(currentDay).toBeInTheDocument();
-  expect(scheduledDay).toBeInTheDocument();
-  expect(unscheduledDay).toBeInTheDocument();
-});

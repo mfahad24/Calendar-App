@@ -18,6 +18,7 @@
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   padding-bottom: 20px;
+  border: 2px solid grey;
 }
 
 .calendar-day-numbers {
@@ -43,11 +44,13 @@
 .calendar-day-numbers__day-number--today {
   background-color: lightblue;
   border-radius: 10px;
+  border: 1px solid grey;
 }
 
 .calendar-day-numbers__day-number--scheduled {
   background-color: lightgrey;
   border-radius: 10px;
+  border: 1px solid grey;
 }
 
 .calendar-day-numbers__day-number:hover {
@@ -98,13 +101,13 @@
 
 @media (max-width: 1400px) {
   .calendar-day-numbers__day-number {
-    width: 150px;
+    width: 130px;
     height: 40px;
     margin: 10px;
   }
 
   .calendar-days__day-name {
-    width: 125px;
+    width: 130px;
     margin: 10px;
   }
 }
@@ -147,7 +150,7 @@
   }
 
   .calendar-container {
-    height: 85vh; 
+    height: 85vh;
   }
 }
 
@@ -168,7 +171,7 @@
   }
 
   .calendar-days__day-name {
-    width: 25px;
+    width: 23px;
     margin: 6px;
     font-size: 6vw;
   }

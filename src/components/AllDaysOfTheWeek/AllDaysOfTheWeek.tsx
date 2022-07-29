@@ -1,4 +1,4 @@
-import React, { ReactElement, useState, useEffect } from "react";
+import React, { ReactElement } from "react";
 import { dayNamesOfTheWeek } from "../../utils/CalendarCalculations";
 import "./AllDaysOfTheWeek.css";
 

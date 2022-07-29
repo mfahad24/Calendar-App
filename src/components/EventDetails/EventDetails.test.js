@@ -22,6 +22,8 @@ test("event details screen rendered with july 15 event details", () => {
 
 test("event details screen rendered with july 30 event details", () => {
   render(<EventDetails clickedDayNumber={30} setShowEventDetails={true} />);
-  const closeButton = screen.getByText("Doctor's Appointment");
+  const closeButton = screen.getByText(
+    "Doctor's Appointment with Dr. Football"
+  );
   expect(closeButton).toBeInTheDocument();
 });
