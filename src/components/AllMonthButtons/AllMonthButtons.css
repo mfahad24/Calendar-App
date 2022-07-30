@@ -15,13 +15,14 @@
 
 .all-month-buttons__single-month--inactive-month {
   margin-bottom: 10px;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 19px;
+  font-weight: normal;
   color: #989898;
 }
 
 .all-month-buttons__single-month--active-month {
   color: black;
+  font-weight: bold;
 }
 
 .all-month-buttons__single-month--inactive-circle {
@@ -32,6 +33,7 @@
   display: inline-block;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   cursor: pointer;
+  border: 1px solid lightgrey;
 }
 
 .all-month-buttons__single-month--inactive-circle:hover {
@@ -40,4 +42,5 @@
 
 .all-month-buttons__single-month--active-circle {
   background-color: red;
+  border: 1px solid red;
 }

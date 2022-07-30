@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import EventDescriptionInTile from "../EventDescriptionInTile/EventDescriptionInTile";
 import allEvents from "../../data/AllEvents";
 import "./EventTypeInTile.css";
 
@@ -12,14 +13,14 @@ const EventTypeInTile: React.FC<EventTypeInTileProps> = ({
   widthDimension,
 }): ReactElement => {
   return (
-    <>
-      <div className="event-type-in-tile-container">
-        {allEvents.map((event, key) => {
-          if (
-            Number(event.date.split("").slice(3, 5).join("")) === day &&
-            widthDimension >= 1200
-          ) {
-            return (
+    <div className="event-type-and-details-in-tile-container">
+      {allEvents.map((event, key) => {
+        if (
+          Number(event.date.split("").slice(3, 5).join("")) === day &&
+          widthDimension >= 1200
+        ) {
+          return (
+            <>
               <div
                 key={`event-type-in-tile${key}`}
                 className="event-type-in-tile"
@@ -28,11 +29,15 @@ const EventTypeInTile: React.FC<EventTypeInTileProps> = ({
                   ? `${event.type.slice(0, 15)}...`
                   : event.type}
               </div>
-            );
-          }
-        })}
-      </div>
-    </>
+              <EventDescriptionInTile
+                widthDimension={widthDimension}
+                day={day}
+              />
+            </>
+          );
+        }
+      })}
+    </div>
   );
 };
 
