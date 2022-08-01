@@ -2,10 +2,14 @@ import React, { ReactElement } from "react";
 import { getCurrentMonthName } from "../../utils/CalendarCalculations";
 import "./MonthName.css";
 
-const MonthName: React.FC = (): ReactElement => {
+interface MonthNameProps {
+  selectedMonth: String,
+}
+
+const MonthName: React.FC<MonthNameProps> = ({selectedMonth}): ReactElement => {
   return (
     <>
-      <div className="month-name">{getCurrentMonthName()}</div>
+      <div className="month-name">{getCurrentMonthName(selectedMonth)}</div>
     </>
   );
 };

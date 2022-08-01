@@ -1,11 +1,18 @@
 import React, { ReactElement } from "react";
 import {
   monthNames,
-  firstDayOfTheMonth,
+  // firstDayOfTheMonthFullDate,
 } from "../../utils/CalendarCalculations";
 import "./AllMonthButtons.css";
 
-const AllMonthButtons: React.FC = (): ReactElement => {
+interface AllMonthButtonsProps {
+  selectedMonth: String,
+  setSelectedMonth: Function,
+  widthDimension: Number
+}
+
+const AllMonthButtons: React.FC<AllMonthButtonsProps> = ({selectedMonth, setSelectedMonth}): ReactElement => {
+  let currentMonth = selectedMonth.slice(0, 3);
   return (
     <>
       <div className="all-month-buttons-container">
@@ -17,7 +24,7 @@ const AllMonthButtons: React.FC = (): ReactElement => {
             >
               <div
                 className={`all-month-buttons__single-month--inactive-month ${
-                  firstDayOfTheMonth.slice(0, 3) === month.slice(0, 3)
+                  currentMonth === month.slice(0, 3)
                     ? "all-month-buttons__single-month--active-month"
                     : ""
                 }`}
@@ -25,8 +32,10 @@ const AllMonthButtons: React.FC = (): ReactElement => {
                 {month.slice(0, 3)}
               </div>
               <div
+              // temporarily disabling Jan - Jul since CalendarCals line 33 needs work
+                onClick={() => {index >= 7 && setSelectedMonth(month)}}
                 className={`all-month-buttons__single-month--inactive-circle ${
-                  firstDayOfTheMonth.slice(0, 3) === month.slice(0, 3)
+                  currentMonth === month.slice(0, 3)
                     ? "all-month-buttons__single-month--active-circle"
                     : ""
                 }`}

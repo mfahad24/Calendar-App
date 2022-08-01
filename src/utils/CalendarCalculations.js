@@ -22,20 +22,19 @@ export const monthNames = [
   "November",
   "December",
 ];
-//TODO: to make multi-month change this variable (part 1)
-export let firstDayOfTheMonth = "July 1, 2022";
 
 //all exported functions
-export const getNumberOfFilledCellsInCurrentMonth = () => {
+export const getNumberOfFilledCellsInCurrentMonth = (
+  firstDayOfTheMonthFullDate
+) => {
   let currentDate = new Date();
   let totalDaysInCurrentMonth = new Date(
     currentDate.getFullYear(),
-    //TODO: to make multi-month, make this dynamic (part 2)
     currentDate.getMonth() + 1,
     0
   ).getDate();
   totalDaysInCurrentMonth += getNumberOfEmptyCellsInTheMonth(
-    firstDayOfTheMonth
+    firstDayOfTheMonthFullDate
   );
   let allCellsInCurrentMonth = Array.from(
     { length: totalDaysInCurrentMonth },
@@ -46,33 +45,36 @@ export const getNumberOfFilledCellsInCurrentMonth = () => {
 
 //determining how many cells in calendar need to be empty
 //ex: since July 2022 starts on a Friday - we need 5 empty cells at beginning
-export const getNumberOfEmptyCellsInTheMonth = (firstDayOfTheMonth) => {
-  let currentDate = new Date(firstDayOfTheMonth);
+export const getNumberOfEmptyCellsInTheMonth = (firstDayOfTheMonthFullDate) => {
+  let currentDate = new Date(firstDayOfTheMonthFullDate);
   let firstDayOfMonthDayNumber = currentDate.getDay();
   return firstDayOfMonthDayNumber;
 };
 
-export const getAllEmptyAndFilledCellsInCurrentMonth = () => {
+export const getAllEmptyAndFilledCellsInCurrentMonth = (
+  firstDayOfTheMonthFullDate
+) => {
   const allEmptyAndFilledCellsInCurrentMonth = [];
   const numberOfEmptyCells = getNumberOfEmptyCellsInTheMonth(
-    firstDayOfTheMonth
+    firstDayOfTheMonthFullDate
   );
-  getNumberOfFilledCellsInCurrentMonth().map((day) => {
-    if (day <= numberOfEmptyCells) {
-      return allEmptyAndFilledCellsInCurrentMonth.push(0);
-    } else {
-      return allEmptyAndFilledCellsInCurrentMonth.push(
-        (day -= numberOfEmptyCells)
-      );
+  getNumberOfFilledCellsInCurrentMonth(firstDayOfTheMonthFullDate).map(
+    (day) => {
+      if (day <= numberOfEmptyCells) {
+        return allEmptyAndFilledCellsInCurrentMonth.push(0);
+      } else {
+        return allEmptyAndFilledCellsInCurrentMonth.push(
+          (day -= numberOfEmptyCells)
+        );
+      }
     }
-  });
+  );
   return allEmptyAndFilledCellsInCurrentMonth;
 };
 
-export const getCurrentMonthName = () => {
+export const getCurrentMonthName = (selectedMonth) => {
   let currentDate = new Date();
-  //TODO: to make multi-month, make this dynamic (part 3)
-  return monthNames[currentDate.getMonth()] + " " + currentDate.getFullYear();
+  return selectedMonth + " " + currentDate.getFullYear();
 };
 
 export const getCurrentDayNumber = () => {

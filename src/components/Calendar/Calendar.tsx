@@ -11,6 +11,7 @@ import AllMonthButtons from "../AllMonthButtons/AllMonthButtons";
 import {
   getAllEmptyAndFilledCellsInCurrentMonth,
   getCurrentDayNumber,
+  monthNames
 } from "../../utils/CalendarCalculations";
 import allEvents from "../../data/AllEvents";
 
@@ -26,6 +27,7 @@ const Calendar: React.FC = (): ReactElement => {
   const [widthDimension, setWidthDimension] = useState<Number>(
     window.innerWidth
   );
+  const [selectedMonth, setSelectedMonth] = useState<String>('August');
 
   useEffect(() => {
     function handleResize() {
@@ -37,13 +39,18 @@ const Calendar: React.FC = (): ReactElement => {
 
   useEffect(() => {
     allEvents.map((event) => {
+      let eventDayMonth = Number(event.date.split("")
+        .slice(0, 2)
+        .join(""));
       let eventDayNumber = Number(
         event.date
           .split("")
           .slice(3, 5)
           .join("")
       );
-      setAllScheduledDayNumbers((prev) => [...prev, eventDayNumber]);
+      if (monthNames[eventDayMonth - 1] === selectedMonth) {
+        setAllScheduledDayNumbers((prev) => [...prev, eventDayNumber]);
+      }
     });
   }, []);
 
@@ -71,10 +78,10 @@ const Calendar: React.FC = (): ReactElement => {
         />
       )}
       <div className="calendar-container">
-        <MonthName />
+        <MonthName selectedMonth={selectedMonth} />
         <AllDaysOfTheWeek widthDimension={widthDimension} />
         <div className="calendar-day-numbers">
-          {getAllEmptyAndFilledCellsInCurrentMonth().map(
+          {getAllEmptyAndFilledCellsInCurrentMonth(`${selectedMonth} 1, 2022`).map(
             (day: any, index: Number) => {
               return (
                 <div
@@ -91,7 +98,7 @@ const Calendar: React.FC = (): ReactElement => {
             }
           )}
         </div>
-        <AllMonthButtons />
+        <AllMonthButtons selectedMonth={selectedMonth} setSelectedMonth={setSelectedMonth} widthDimension={widthDimension} />
       </div>
     </>
   );
