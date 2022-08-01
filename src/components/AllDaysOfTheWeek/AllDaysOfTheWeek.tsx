@@ -1,5 +1,5 @@
 import React, { ReactElement, useState, useEffect } from "react";
-import { dayNamesOfTheWeek } from "../../utils/CalendarCalculations";
+import { dayNamesOfTheWeek } from "../../constants/constants";
 import "./AllDaysOfTheWeek.css";
 
 const AllDaysOfTheWeek: React.FC = (): ReactElement => {

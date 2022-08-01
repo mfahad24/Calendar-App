@@ -8,7 +8,7 @@ import AllDaysOfTheWeek from "../AllDaysOfTheWeek/AllDaysOfTheWeek";
 
 //util/data imports
 import {
-  getAllEmptyAndFilledCellsInCurrentMonth,
+  getTotalEmptyAndFilledTilesInCurrentMonth,
   getCurrentDayNumber,
 } from "../../utils/CalendarCalculations";
 import allEvents from "../../data/AllEvents";
@@ -62,7 +62,7 @@ const Calendar: React.FC = (): ReactElement => {
         <MonthName />
         <AllDaysOfTheWeek />
         <div className="calendar-day-numbers">
-          {getAllEmptyAndFilledCellsInCurrentMonth().map(
+          {getTotalEmptyAndFilledTilesInCurrentMonth().map(
             (day: any, index: Number) => {
               return (
                 <div
