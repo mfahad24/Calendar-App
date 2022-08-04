@@ -8,6 +8,10 @@
   right: 0;
 }
 
+.all-monnths-button-container__hidden {
+  display: none;
+}
+
 .all-month-buttons__single-month {
   margin: 0px 10px 0px 10px;
   cursor: pointer;

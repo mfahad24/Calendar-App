@@ -1,6 +1,4 @@
 import React, { ReactElement } from "react";
-import // firstDayOfTheMonthFullDate,
-"../../utils/CalendarCalculations";
 import { monthNames } from "../../constants/constants";
 import "./AllMonthButtons.css";
 
@@ -13,11 +11,18 @@ interface AllMonthButtonsProps {
 const AllMonthButtons: React.FC<AllMonthButtonsProps> = ({
   selectedMonth,
   setSelectedMonth,
+  widthDimension,
 }): ReactElement => {
   let currentMonth = selectedMonth.slice(0, 3);
   return (
     <>
-      <div className="all-month-buttons-container">
+      <div
+        className={
+          widthDimension > 448
+            ? `all-month-buttons-container`
+            : `all-monnths-button-container__hidden`
+        }
+      >
         {monthNames.map((month, index) => {
           return (
             <div
