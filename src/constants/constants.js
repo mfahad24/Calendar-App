@@ -21,6 +21,3 @@ export const monthNames = [
   "November",
   "December",
 ];
-
-//TODO: to make multi-month change this variable (part 1)
-export const firstDayOfTheMonth = "July 1, 2022";

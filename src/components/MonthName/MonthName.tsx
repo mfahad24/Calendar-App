@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { getCurrentMonthName } from "../../utils/CalendarCalculations";
+import { getMonthName, getCurrentYear } from "../../utils/CalendarCalculations";
 import "./MonthName.css";
 
 interface MonthNameProps {
@@ -11,7 +11,7 @@ const MonthName: React.FC<MonthNameProps> = ({
 }): ReactElement => {
   return (
     <>
-      <div className="month-name">{getCurrentMonthName(selectedMonth)}</div>
+      <div className="month-name">{selectedMonth + " " + getCurrentYear()}</div>
     </>
   );
 };

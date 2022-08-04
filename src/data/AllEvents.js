@@ -17,6 +17,12 @@ const allEvents = [
     description: "A regular checkup with your doctor",
     type: "Doctor's Appointment with Dr. Football",
   },
+  {
+    name: "Allen Robinson",
+    date: "09-08-2022",
+    description: "Today is a game vs. the Buffallo Bills",
+    type: "Football is back baby!",
+  },
 ];
 
 export default allEvents;

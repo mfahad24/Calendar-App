@@ -40,10 +40,7 @@
   border: 1px solid lightgrey;
 }
 
-.all-month-buttons__single-month--inactive-circle:hover {
-  background-color: red;
-}
-
+.all-month-buttons__single-month--inactive-circle:hover,
 .all-month-buttons__single-month--active-circle {
   background-color: red;
   border: 1px solid red;

@@ -1,10 +1,14 @@
+import { monthNames } from "../constants/constants";
+
 export const getNumberOfTotalTilesInCurrentMonth = (
-  firstDayOfTheMonthFullDate
+  firstDayOfTheMonthFullDate,
+  selectedMonth
 ) => {
   let currentDate = new Date();
+  console.log(firstDayOfTheMonthFullDate);
   let totalTilesInCurrentMonth = new Date(
     currentDate.getFullYear(),
-    currentDate.getMonth() + 1,
+    getClickedMonthValueForCurrentDateCalculation(selectedMonth),
     0
   ).getDate();
   totalTilesInCurrentMonth += getNumberOfEmptyTilesInTheBeginningOfMonth(
@@ -26,13 +30,17 @@ export const getNumberOfEmptyTilesInTheBeginningOfMonth = (
 };
 
 export const getTotalEmptyAndFilledCellsInCurrentMonth = (
-  firstDayOfTheMonthFullDate
+  firstDayOfTheMonthFullDate,
+  selectedMonth
 ) => {
   const allEmptyAndFilledTilesInCurrentMonth = [];
   const numberOfEmptyTiles = getNumberOfEmptyTilesInTheBeginningOfMonth(
     firstDayOfTheMonthFullDate
   );
-  getNumberOfTotalTilesInCurrentMonth(firstDayOfTheMonthFullDate).map((day) => {
+  getNumberOfTotalTilesInCurrentMonth(
+    firstDayOfTheMonthFullDate,
+    selectedMonth
+  ).map((day) => {
     if (day <= numberOfEmptyTiles) {
       return allEmptyAndFilledTilesInCurrentMonth.push(0);
     } else {
@@ -44,12 +52,24 @@ export const getTotalEmptyAndFilledCellsInCurrentMonth = (
   return allEmptyAndFilledTilesInCurrentMonth;
 };
 
-export const getCurrentMonthName = (selectedMonth) => {
-  let currentDate = new Date();
-  return selectedMonth + " " + currentDate.getFullYear();
+export const getClickedMonthValueForCurrentDateCalculation = (month) => {
+  return monthNames.indexOf(month) + 1;
+};
+
+const currentDate = new Date();
+
+export const getMonthName = () => {
+  return monthNames[currentDate.getMonth()];
+};
+
+export const getCurrentYear = () => {
+  return currentDate.getFullYear();
 };
 
 export const getCurrentDayNumber = () => {
-  let currentDate = new Date();
   return currentDate.getDate();
+};
+
+export const getMonthNumberConvertedToMonthName = (eventMonth) => {
+  return monthNames[eventMonth - 1];
 };

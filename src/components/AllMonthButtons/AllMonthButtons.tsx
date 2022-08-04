@@ -41,7 +41,7 @@ const AllMonthButtons: React.FC<AllMonthButtonsProps> = ({
               <div
                 // temporarily disabling Jan - Jul since CalendarCals line 33 needs work
                 onClick={() => {
-                  index >= 7 && setSelectedMonth(month);
+                  setSelectedMonth(month);
                 }}
                 className={`all-month-buttons__single-month--inactive-circle ${
                   currentMonth === month.slice(0, 3)

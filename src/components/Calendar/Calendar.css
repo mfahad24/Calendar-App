@@ -44,13 +44,21 @@
 .calendar-day-numbers__day-number--today {
   background-color: lightblue;
   border-radius: 10px;
-  border: 1px solid grey;
+  border: 2px solid grey;
+}
+
+.calendar-day-numbers__day-number--today:hover {
+  border: 2px solid red;
 }
 
 .calendar-day-numbers__day-number--scheduled {
   background-color: lightgrey;
   border-radius: 10px;
-  border: 1px solid grey;
+  border: 2px solid grey;
+}
+
+.calendar-day-numbers__day-number--scheduled:hover {
+  border: 2px solid red;
 }
 
 .calendar-day-numbers__day-number:hover {

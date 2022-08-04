@@ -1,15 +1,18 @@
 import React, { ReactElement } from "react";
 import "./EventDetails.css";
 import allEvents from "../../data/AllEvents";
+import { getMonthNumberConvertedToMonthName } from "../../utils/CalendarCalculations";
 
 interface EventDetailsProps {
   clickedDayNumber: Number;
   setShowEventDetails: Function;
+  selectedMonth: String;
 }
 
 const EventDetails: React.FC<EventDetailsProps> = ({
   clickedDayNumber,
   setShowEventDetails,
+  selectedMonth,
 }): ReactElement => {
   return (
     <>
@@ -18,7 +21,10 @@ const EventDetails: React.FC<EventDetailsProps> = ({
           {allEvents.map((event, index) => {
             if (
               Number(event.date.split("").slice(3, 5).join("")) ===
-              clickedDayNumber
+                clickedDayNumber &&
+              getMonthNumberConvertedToMonthName(
+                event.date.split("").slice(0, 2).join("")
+              ) === selectedMonth
             ) {
               return (
                 <>

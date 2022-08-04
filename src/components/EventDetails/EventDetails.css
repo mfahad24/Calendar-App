@@ -4,7 +4,7 @@
   width: 100%;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 10;
-  animation: fadeIn 0.75s;
+  animation: fadeIn 0.5s;
   top: 0;
   left: 0;
 }
@@ -26,6 +26,7 @@
   font-size: 20px;
   text-align: left;
   padding-left: 20px;
+  border: 2px solid grey;
 }
 
 .event-details__close {

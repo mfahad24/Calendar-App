@@ -11,6 +11,7 @@ import AllMonthButtons from "../AllMonthButtons/AllMonthButtons";
 import {
   getTotalEmptyAndFilledCellsInCurrentMonth,
   getCurrentDayNumber,
+  getMonthName,
 } from "../../utils/CalendarCalculations";
 import { monthNames } from "../../constants/constants";
 import allEvents from "../../data/AllEvents";
@@ -53,9 +54,12 @@ const Calendar: React.FC = (): ReactElement => {
   };
 
   const renderConditionalClasses = (day: Number) => {
-    if (allScheduledDayNumbers.includes(day))
+    if (
+      allScheduledDayNumbers.includes(day) &&
+      selectedMonth === getMonthName()
+    )
       return " calendar-day-numbers__day-number--scheduled";
-    if (getCurrentDayNumber() === day)
+    if (getCurrentDayNumber() === day && selectedMonth === getMonthName())
       return " calendar-day-numbers__day-number--today";
     if (day === 0)
       return " calendar-day-numbers__day-number--not-a-true-day-number";
@@ -68,6 +72,7 @@ const Calendar: React.FC = (): ReactElement => {
         <EventDetails
           clickedDayNumber={clickedDayNumber}
           setShowEventDetails={setShowEventDetails}
+          selectedMonth={selectedMonth}
         />
       )}
       <div className="calendar-container">
@@ -75,19 +80,28 @@ const Calendar: React.FC = (): ReactElement => {
         <AllDaysOfTheWeek widthDimension={widthDimension} />
         <div className="calendar-day-numbers">
           {getTotalEmptyAndFilledCellsInCurrentMonth(
-            `${selectedMonth} 1, 2022`
+            `${selectedMonth} 1, 2022`,
+            selectedMonth
           ).map((day: any, index: Number) => {
             return (
-              <div
-                key={`day-number-tile-${index}`}
-                onClick={() => triggerEventDetailsPopup(day)}
-                className={`calendar-day-numbers__day-number${renderConditionalClasses(
-                  day
-                )}`}
-              >
-                <div>{day}</div>
-                <EventTypeInTile day={day} widthDimension={widthDimension} />
-              </div>
+              <span>
+                <div
+                  key={`day-number-tile-${index}`}
+                  onClick={() => triggerEventDetailsPopup(day)}
+                  className={`calendar-day-numbers__day-number${renderConditionalClasses(
+                    day
+                  )}`}
+                >
+                  <div className="calendar-day-numbers__day-number--number">
+                    {day}
+                  </div>
+                  <EventTypeInTile
+                    day={day}
+                    widthDimension={widthDimension}
+                    selectedMonth={selectedMonth}
+                  />
+                </div>
+              </span>
             );
           })}
         </div>
