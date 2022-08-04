@@ -4,7 +4,7 @@ import Calendar from "./Calendar";
 
 test("current month and year are rendered", () => {
   render(<Calendar />);
-  const calendarTitle = screen.getByText("July 2022");
+  const calendarTitle = screen.getByText("August 2022");
   expect(calendarTitle).toBeInTheDocument();
 });
 

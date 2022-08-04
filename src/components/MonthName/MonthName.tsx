@@ -3,10 +3,12 @@ import { getCurrentMonthName } from "../../utils/CalendarCalculations";
 import "./MonthName.css";
 
 interface MonthNameProps {
-  selectedMonth: String,
+  selectedMonth: String;
 }
 
-const MonthName: React.FC<MonthNameProps> = ({selectedMonth}): ReactElement => {
+const MonthName: React.FC<MonthNameProps> = ({
+  selectedMonth,
+}): ReactElement => {
   return (
     <>
       <div className="month-name">{getCurrentMonthName(selectedMonth)}</div>

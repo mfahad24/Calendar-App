@@ -10,7 +10,7 @@ test("event details screen is rendered", () => {
 
 test("event details screen rendered with july 4 event details", () => {
   render(<EventDetails clickedDayNumber={4} setShowEventDetails={true} />);
-  const closeButton = screen.getByText("Holiday");
+  const closeButton = screen.getByText("A day off from training camp");
   expect(closeButton).toBeInTheDocument();
 });
 

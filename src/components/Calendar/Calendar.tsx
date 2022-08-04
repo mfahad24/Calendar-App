@@ -9,10 +9,10 @@ import AllMonthButtons from "../AllMonthButtons/AllMonthButtons";
 
 //util/data imports
 import {
-  getAllEmptyAndFilledCellsInCurrentMonth,
+  getTotalEmptyAndFilledCellsInCurrentMonth,
   getCurrentDayNumber,
-  monthNames
 } from "../../utils/CalendarCalculations";
+import { monthNames } from "../../constants/constants";
 import allEvents from "../../data/AllEvents";
 
 //css imports
@@ -27,7 +27,7 @@ const Calendar: React.FC = (): ReactElement => {
   const [widthDimension, setWidthDimension] = useState<Number>(
     window.innerWidth
   );
-  const [selectedMonth, setSelectedMonth] = useState<String>('August');
+  const [selectedMonth, setSelectedMonth] = useState<String>("August");
 
   useEffect(() => {
     function handleResize() {
@@ -39,15 +39,8 @@ const Calendar: React.FC = (): ReactElement => {
 
   useEffect(() => {
     allEvents.map((event) => {
-      let eventDayMonth = Number(event.date.split("")
-        .slice(0, 2)
-        .join(""));
-      let eventDayNumber = Number(
-        event.date
-          .split("")
-          .slice(3, 5)
-          .join("")
-      );
+      let eventDayMonth = Number(event.date.split("").slice(0, 2).join(""));
+      let eventDayNumber = Number(event.date.split("").slice(3, 5).join(""));
       if (monthNames[eventDayMonth - 1] === selectedMonth) {
         setAllScheduledDayNumbers((prev) => [...prev, eventDayNumber]);
       }
@@ -81,24 +74,28 @@ const Calendar: React.FC = (): ReactElement => {
         <MonthName selectedMonth={selectedMonth} />
         <AllDaysOfTheWeek widthDimension={widthDimension} />
         <div className="calendar-day-numbers">
-          {getAllEmptyAndFilledCellsInCurrentMonth(`${selectedMonth} 1, 2022`).map(
-            (day: any, index: Number) => {
-              return (
-                <div
-                  key={`day-number-tile-${index}`}
-                  onClick={() => triggerEventDetailsPopup(day)}
-                  className={`calendar-day-numbers__day-number${renderConditionalClasses(
-                    day
-                  )}`}
-                >
-                  <div>{day}</div>
-                  <EventTypeInTile day={day} widthDimension={widthDimension} />
-                </div>
-              );
-            }
-          )}
+          {getTotalEmptyAndFilledCellsInCurrentMonth(
+            `${selectedMonth} 1, 2022`
+          ).map((day: any, index: Number) => {
+            return (
+              <div
+                key={`day-number-tile-${index}`}
+                onClick={() => triggerEventDetailsPopup(day)}
+                className={`calendar-day-numbers__day-number${renderConditionalClasses(
+                  day
+                )}`}
+              >
+                <div>{day}</div>
+                <EventTypeInTile day={day} widthDimension={widthDimension} />
+              </div>
+            );
+          })}
         </div>
-        <AllMonthButtons selectedMonth={selectedMonth} setSelectedMonth={setSelectedMonth} widthDimension={widthDimension} />
+        <AllMonthButtons
+          selectedMonth={selectedMonth}
+          setSelectedMonth={setSelectedMonth}
+          widthDimension={widthDimension}
+        />
       </div>
     </>
   );

@@ -1,75 +1,47 @@
-//all constants
-export const dayNamesOfTheWeek = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-export const monthNames = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-//all exported functions
-export const getNumberOfFilledCellsInCurrentMonth = (
+export const getNumberOfTotalTilesInCurrentMonth = (
   firstDayOfTheMonthFullDate
 ) => {
   let currentDate = new Date();
-  let totalDaysInCurrentMonth = new Date(
+  let totalTilesInCurrentMonth = new Date(
     currentDate.getFullYear(),
     currentDate.getMonth() + 1,
     0
   ).getDate();
-  totalDaysInCurrentMonth += getNumberOfEmptyCellsInTheMonth(
+  totalTilesInCurrentMonth += getNumberOfEmptyTilesInTheBeginningOfMonth(
     firstDayOfTheMonthFullDate
   );
-  let allCellsInCurrentMonth = Array.from(
-    { length: totalDaysInCurrentMonth },
+  let allTilesInCurrentMonth = Array.from(
+    { length: totalTilesInCurrentMonth },
     (_, i) => i + 1
   );
-  return allCellsInCurrentMonth;
+  return allTilesInCurrentMonth;
 };
 
-//determining how many cells in calendar need to be empty
-//ex: since July 2022 starts on a Friday - we need 5 empty cells at beginning
-export const getNumberOfEmptyCellsInTheMonth = (firstDayOfTheMonthFullDate) => {
+export const getNumberOfEmptyTilesInTheBeginningOfMonth = (
+  firstDayOfTheMonthFullDate
+) => {
   let currentDate = new Date(firstDayOfTheMonthFullDate);
   let firstDayOfMonthDayNumber = currentDate.getDay();
   return firstDayOfMonthDayNumber;
 };
 
-export const getAllEmptyAndFilledCellsInCurrentMonth = (
+export const getTotalEmptyAndFilledCellsInCurrentMonth = (
   firstDayOfTheMonthFullDate
 ) => {
-  const allEmptyAndFilledCellsInCurrentMonth = [];
-  const numberOfEmptyCells = getNumberOfEmptyCellsInTheMonth(
+  const allEmptyAndFilledTilesInCurrentMonth = [];
+  const numberOfEmptyTiles = getNumberOfEmptyTilesInTheBeginningOfMonth(
     firstDayOfTheMonthFullDate
   );
-  getNumberOfFilledCellsInCurrentMonth(firstDayOfTheMonthFullDate).map(
-    (day) => {
-      if (day <= numberOfEmptyCells) {
-        return allEmptyAndFilledCellsInCurrentMonth.push(0);
-      } else {
-        return allEmptyAndFilledCellsInCurrentMonth.push(
-          (day -= numberOfEmptyCells)
-        );
-      }
+  getNumberOfTotalTilesInCurrentMonth(firstDayOfTheMonthFullDate).map((day) => {
+    if (day <= numberOfEmptyTiles) {
+      return allEmptyAndFilledTilesInCurrentMonth.push(0);
+    } else {
+      return allEmptyAndFilledTilesInCurrentMonth.push(
+        (day -= numberOfEmptyTiles)
+      );
     }
-  );
-  return allEmptyAndFilledCellsInCurrentMonth;
+  });
+  return allEmptyAndFilledTilesInCurrentMonth;
 };
 
 export const getCurrentMonthName = (selectedMonth) => {

@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { dayNamesOfTheWeek } from "../../utils/CalendarCalculations";
+import { dayNamesOfTheWeek } from "../../constants/constants";
 import "./AllDaysOfTheWeek.css";
 
 interface AllDaysOfTheWeekProps {

@@ -17,12 +17,8 @@ const EventDetails: React.FC<EventDetailsProps> = ({
         <div data-testid="event-details" className="event-details">
           {allEvents.map((event, index) => {
             if (
-              Number(
-                event.date
-                  .split("")
-                  .slice(3, 5)
-                  .join("")
-              ) === clickedDayNumber
+              Number(event.date.split("").slice(3, 5).join("")) ===
+              clickedDayNumber
             ) {
               return (
                 <>
