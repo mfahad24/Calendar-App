@@ -16,46 +16,53 @@ const EventDetails: React.FC<EventDetailsProps> = ({
 }): ReactElement => {
   return (
     <>
-      <div className="event-details-container">
-        <div data-testid="event-details" className="event-details">
+      <div
+        className="event-details-container"
+        key={`event-type-in-tile-container`}
+      >
+        <div
+          data-testid="event-details"
+          className="event-details"
+          key={`event-details`}
+        >
           {allEvents.map((event, index) => {
             if (
               Number(event.date.split("").slice(3, 5).join("")) ===
                 clickedDayNumber &&
               getMonthNumberConvertedToMonthName(
-                event.date.split("").slice(0, 2).join("")
+                Number(event.date.split("").slice(0, 2).join(""))
               ) === selectedMonth
             ) {
               return (
-                <>
-                  <div key={`event-details-${index}`}>
-                    <div
-                      key={`event-details__type-${index}`}
-                      className="event-details__type"
-                    >
-                      <strong>Event: </strong>
-                      {event.type}
-                    </div>
-                    <div
-                      key={`event-details__date-${index}`}
-                      className="event-details__date"
-                    >
-                      <strong>Date: </strong> {event.date}
-                    </div>
-                    <div
-                      key={`event-details__name-${index}`}
-                      className="event-details__name"
-                    >
-                      <strong>Name: </strong> {event.name}
-                    </div>
-                    <div
-                      key={`event-details__description-${index}`}
-                      className="event-details__description"
-                    >
-                      <strong>Description: </strong> {event.description}
-                    </div>
+                <div key={`event-details-${index}`}>
+                  <div
+                    key={`event-details__type-${index}`}
+                    className="event-details__type"
+                  >
+                    <strong key={`event-details-type-pre-text}`}>
+                      Event:{" "}
+                    </strong>
+                    {event.type}
                   </div>
-                </>
+                  <div
+                    key={`event-details__date-${index}`}
+                    className="event-details__date"
+                  >
+                    <strong>Date: </strong> {event.date}
+                  </div>
+                  <div
+                    key={`event-details__name-${index}`}
+                    className="event-details__name"
+                  >
+                    <strong>Name: </strong> {event.name}
+                  </div>
+                  <div
+                    key={`event-details__description-${index}`}
+                    className="event-details__description"
+                  >
+                    <strong>Description: </strong> {event.description}
+                  </div>
+                </div>
               );
             }
           })}

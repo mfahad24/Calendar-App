@@ -9,7 +9,7 @@ import AllMonthButtons from "../AllMonthButtons/AllMonthButtons";
 
 //util/data imports
 import {
-  getTotalEmptyAndFilledCellsInCurrentMonth,
+  getFinalTotalEmptyAndFilledCellsInCurrentMonth,
   getCurrentDayNumber,
   getMonthName,
 } from "../../utils/CalendarCalculations";
@@ -28,7 +28,7 @@ const Calendar: React.FC = (): ReactElement => {
   const [widthDimension, setWidthDimension] = useState<Number>(
     window.innerWidth
   );
-  const [selectedMonth, setSelectedMonth] = useState<String>("August");
+  const [selectedMonth, setSelectedMonth] = useState<string>("August");
 
   useEffect(() => {
     function handleResize() {
@@ -79,29 +79,27 @@ const Calendar: React.FC = (): ReactElement => {
         <MonthName selectedMonth={selectedMonth} />
         <AllDaysOfTheWeek widthDimension={widthDimension} />
         <div className="calendar-day-numbers">
-          {getTotalEmptyAndFilledCellsInCurrentMonth(
+          {getFinalTotalEmptyAndFilledCellsInCurrentMonth(
             `${selectedMonth} 1, 2022`,
             selectedMonth
           ).map((day: any, index: Number) => {
             return (
-              <span>
-                <div
-                  key={`day-number-tile-${index}`}
-                  onClick={() => triggerEventDetailsPopup(day)}
-                  className={`calendar-day-numbers__day-number${renderConditionalClasses(
-                    day
-                  )}`}
-                >
-                  <div className="calendar-day-numbers__day-number--number">
-                    {day}
-                  </div>
-                  <EventTypeInTile
-                    day={day}
-                    widthDimension={widthDimension}
-                    selectedMonth={selectedMonth}
-                  />
+              <div
+                key={`day-number-tile-${index}`}
+                onClick={() => triggerEventDetailsPopup(day)}
+                className={`calendar-day-numbers__day-number${renderConditionalClasses(
+                  day
+                )}`}
+              >
+                <div className="calendar-day-numbers__day-number--number">
+                  {day}
                 </div>
-              </span>
+                <EventTypeInTile
+                  day={day}
+                  widthDimension={widthDimension}
+                  selectedMonth={selectedMonth}
+                />
+              </div>
             );
           })}
         </div>

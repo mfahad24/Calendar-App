@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { getMonthName, getCurrentYear } from "../../utils/CalendarCalculations";
+import { getCurrentYear } from "../../utils/CalendarCalculations";
 import "./MonthName.css";
 
 interface MonthNameProps {

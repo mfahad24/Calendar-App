@@ -1,11 +1,20 @@
 import { monthNames } from "../constants/constants";
 
+//get all empty tiles in the beginning of the month
+export const getNumberOfEmptyTilesInTheBeginningOfMonth = (
+  firstDayOfTheMonthFullDate: string
+) => {
+  let currentDate = new Date(firstDayOfTheMonthFullDate);
+  let firstDayOfMonthDayNumber = currentDate.getDay();
+  return firstDayOfMonthDayNumber;
+};
+
+//get all empty and filled tiles without empty tiles id'd
 export const getNumberOfTotalTilesInCurrentMonth = (
-  firstDayOfTheMonthFullDate,
-  selectedMonth
+  firstDayOfTheMonthFullDate: string,
+  selectedMonth: string
 ) => {
   let currentDate = new Date();
-  console.log(firstDayOfTheMonthFullDate);
   let totalTilesInCurrentMonth = new Date(
     currentDate.getFullYear(),
     getClickedMonthValueForCurrentDateCalculation(selectedMonth),
@@ -21,19 +30,12 @@ export const getNumberOfTotalTilesInCurrentMonth = (
   return allTilesInCurrentMonth;
 };
 
-export const getNumberOfEmptyTilesInTheBeginningOfMonth = (
-  firstDayOfTheMonthFullDate
+//sets value of empty tiles to 0 and outputs a final array to map in render
+export const getFinalTotalEmptyAndFilledCellsInCurrentMonth = (
+  firstDayOfTheMonthFullDate: string,
+  selectedMonth: string
 ) => {
-  let currentDate = new Date(firstDayOfTheMonthFullDate);
-  let firstDayOfMonthDayNumber = currentDate.getDay();
-  return firstDayOfMonthDayNumber;
-};
-
-export const getTotalEmptyAndFilledCellsInCurrentMonth = (
-  firstDayOfTheMonthFullDate,
-  selectedMonth
-) => {
-  const allEmptyAndFilledTilesInCurrentMonth = [];
+  const allEmptyAndFilledTilesInCurrentMonth: Array<null | Number> = [];
   const numberOfEmptyTiles = getNumberOfEmptyTilesInTheBeginningOfMonth(
     firstDayOfTheMonthFullDate
   );
@@ -52,7 +54,7 @@ export const getTotalEmptyAndFilledCellsInCurrentMonth = (
   return allEmptyAndFilledTilesInCurrentMonth;
 };
 
-export const getClickedMonthValueForCurrentDateCalculation = (month) => {
+export const getClickedMonthValueForCurrentDateCalculation = (month: string) => {
   return monthNames.indexOf(month) + 1;
 };
 
@@ -70,6 +72,6 @@ export const getCurrentDayNumber = () => {
   return currentDate.getDate();
 };
 
-export const getMonthNumberConvertedToMonthName = (eventMonth) => {
+export const getMonthNumberConvertedToMonthName = (eventMonth: number) => {
   return monthNames[eventMonth - 1];
 };

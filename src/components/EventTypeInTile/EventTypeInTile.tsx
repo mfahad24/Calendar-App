@@ -15,26 +15,27 @@ const EventTypeInTile: React.FC<EventTypeInTileProps> = ({
   selectedMonth,
 }): ReactElement => {
   return (
-    <div className="event-type-and-details-in-tile-container">
+    <div
+      className="event-type-and-details-in-tile-container"
+      key={`event-type-and-details-in-tile-container`}
+    >
       {allEvents.map((event, key) => {
         if (
           Number(event.date.split("").slice(3, 5).join("")) === day &&
           getMonthNumberConvertedToMonthName(
-            event.date.split("").slice(0, 2).join("")
+            Number(event.date.split("").slice(0, 2).join(""))
           ) === selectedMonth &&
           widthDimension >= 1200
         ) {
           return (
-            <>
-              <div
-                key={`event-type-in-tile-${key}`}
-                className="event-type-in-tile"
-              >
-                {event.type.length > 20
-                  ? `${event.type.slice(0, 15)}...`
-                  : event.type}
-              </div>
-            </>
+            <div
+              key={`event-type-in-tile-${key}`}
+              className="event-type-in-tile"
+            >
+              {event.type.length > 20
+                ? `${event.type.slice(0, 15)}...`
+                : event.type}
+            </div>
           );
         }
       })}

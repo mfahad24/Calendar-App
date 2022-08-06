@@ -8,22 +8,28 @@ test("event details screen is rendered", () => {
   expect(closeButton).toBeInTheDocument();
 });
 
-test("event details screen rendered with july 4 event details", () => {
-  render(<EventDetails clickedDayNumber={4} setShowEventDetails={true} />);
-  const closeButton = screen.getByText("A day off from training camp");
-  expect(closeButton).toBeInTheDocument();
+test("event details screen rendered with August 4 event details", () => {
+  render(
+    <EventDetails
+      clickedDayNumber={4}
+      setShowEventDetails={true}
+      selectedMonth={"August"}
+    />
+  );
+  const eventDescription = screen.getByText("A day off from training camp");
+  expect(eventDescription).toBeInTheDocument();
 });
 
-test("event details screen rendered with july 15 event details", () => {
-  render(<EventDetails clickedDayNumber={15} setShowEventDetails={true} />);
-  const closeButton = screen.getByText("Workout");
-  expect(closeButton).toBeInTheDocument();
-});
-
-test("event details screen rendered with july 30 event details", () => {
-  render(<EventDetails clickedDayNumber={30} setShowEventDetails={true} />);
-  const closeButton = screen.getByText(
+test("event details screen rendered with August 30 event details", () => {
+  render(
+    <EventDetails
+      clickedDayNumber={30}
+      setShowEventDetails={true}
+      selectedMonth={"August"}
+    />
+  );
+  const eventDescription = screen.getByText(
     "Doctor's Appointment with Dr. Football"
   );
-  expect(closeButton).toBeInTheDocument();
+  expect(eventDescription).toBeInTheDocument();
 });
