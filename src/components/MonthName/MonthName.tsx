@@ -11,7 +11,9 @@ const MonthName: React.FC<MonthNameProps> = ({
 }): ReactElement => {
   return (
     <>
-      <div className="month-name">{selectedMonth + " " + getCurrentYear()}</div>
+      <div className="title-container">
+        <div>{selectedMonth + " " + getCurrentYear()}</div>
+      </div>
     </>
   );
 };

@@ -4,7 +4,7 @@ import React, { useState, useEffect, ReactElement } from "react";
 import MonthName from "../MonthName/MonthName";
 import EventDetails from "../EventDetails/EventDetails";
 import AllDaysOfTheWeek from "../AllDaysOfTheWeek/AllDaysOfTheWeek";
-import EventTypeInTile from "../EventTypeInTile/EventTypeInTile";
+import AllDayNumbersOfTheWeek from "../AllDayNumbersOfTheWeek/AllDayNumbersOfTheWeek";
 import AllMonthButtons from "../AllMonthButtons/AllMonthButtons";
 
 //util/data imports
@@ -78,31 +78,12 @@ const Calendar: React.FC = (): ReactElement => {
       <div className="calendar-container">
         <MonthName selectedMonth={selectedMonth} />
         <AllDaysOfTheWeek widthDimension={widthDimension} />
-        <div className="calendar-day-numbers">
-          {getFinalTotalEmptyAndFilledCellsInCurrentMonth(
-            `${selectedMonth} 1, 2022`,
-            selectedMonth
-          ).map((day: any, index: Number) => {
-            return (
-              <div
-                key={`day-number-tile-${index}`}
-                onClick={() => triggerEventDetailsPopup(day)}
-                className={`calendar-day-numbers__day-number${renderConditionalClasses(
-                  day
-                )}`}
-              >
-                <div className="calendar-day-numbers__day-number--number">
-                  {day}
-                </div>
-                <EventTypeInTile
-                  day={day}
-                  widthDimension={widthDimension}
-                  selectedMonth={selectedMonth}
-                />
-              </div>
-            );
-          })}
-        </div>
+        <AllDayNumbersOfTheWeek
+          selectedMonth={selectedMonth}
+          widthDimension={widthDimension}
+          triggerEventDetailsPopup={triggerEventDetailsPopup}
+          renderConditionalClasses={renderConditionalClasses}
+        />
         <AllMonthButtons
           selectedMonth={selectedMonth}
           setSelectedMonth={setSelectedMonth}

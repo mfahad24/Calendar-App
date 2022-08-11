@@ -40,7 +40,7 @@ const EventDetails: React.FC<EventDetailsProps> = ({
                     className="event-details__type"
                   >
                     <strong key={`event-details-type-pre-text}`}>
-                      Event:{" "}
+                      Event:
                     </strong>
                     {event.type}
                   </div>
