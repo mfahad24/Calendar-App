@@ -64,6 +64,8 @@ const EventDetails: React.FC<EventDetailsProps> = ({
                   </div>
                 </div>
               );
+            } else {
+              return;
             }
           })}
           <button

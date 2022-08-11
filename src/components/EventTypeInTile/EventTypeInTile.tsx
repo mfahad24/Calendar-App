@@ -37,6 +37,8 @@ const EventTypeInTile: React.FC<EventTypeInTileProps> = ({
                 : event.type}
             </div>
           );
+        } else {
+          return;
         }
       })}
     </div>

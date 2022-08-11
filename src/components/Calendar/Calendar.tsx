@@ -9,7 +9,6 @@ import AllMonthButtons from "../AllMonthButtons/AllMonthButtons";
 
 //util/data imports
 import {
-  getFinalTotalEmptyAndFilledCellsInCurrentMonth,
   getCurrentDayNumber,
   getMonthName,
 } from "../../utils/CalendarCalculations";
@@ -39,14 +38,14 @@ const Calendar: React.FC = (): ReactElement => {
   }, []);
 
   useEffect(() => {
-    allEvents.map((event) => {
+    allEvents.forEach((event) => {
       let eventDayMonth = Number(event.date.split("").slice(0, 2).join(""));
       let eventDayNumber = Number(event.date.split("").slice(3, 5).join(""));
       if (monthNames[eventDayMonth - 1] === selectedMonth) {
         setAllScheduledDayNumbers((prev) => [...prev, eventDayNumber]);
       }
     });
-  }, []);
+  }, [selectedMonth]);
 
   const triggerEventDetailsPopup = (currentDayNumber: Number) => {
     setClickedDayNumber(currentDayNumber);
@@ -61,7 +60,7 @@ const Calendar: React.FC = (): ReactElement => {
       return " calendar-day-numbers__day-number--scheduled";
     if (getCurrentDayNumber() === day && selectedMonth === getMonthName())
       return " calendar-day-numbers__day-number--today";
-    if (day === 0)
+    if (day === null)
       return " calendar-day-numbers__day-number--not-a-true-day-number";
     return "";
   };

@@ -30,6 +30,9 @@ const AllMonthButtons: React.FC<AllMonthButtonsProps> = ({
               className="all-month-buttons__single-month"
             >
               <div
+              onClick={() => {
+                setSelectedMonth(month);
+              }}
                 className={`all-month-buttons__single-month--inactive-month ${
                   currentMonth === month.slice(0, 3)
                     ? "all-month-buttons__single-month--active-month"
@@ -39,7 +42,6 @@ const AllMonthButtons: React.FC<AllMonthButtonsProps> = ({
                 {month.slice(0, 3)}
               </div>
               <div
-                // temporarily disabling Jan - Jul since CalendarCals line 33 needs work
                 onClick={() => {
                   setSelectedMonth(month);
                 }}
