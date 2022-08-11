@@ -5,10 +5,7 @@ A simple calendar app which displays a single month of the year and indicates th
 
 ## Live Site
 
-Production: https://calendar-app-2022.herokuapp.com/
-
-Staging: http://calendar-app-2022-staging.herokuapp.com/
-(which inludes the future features)
+https://calendar-app-2022.herokuapp.com/
 
 
 ## Run Locally
@@ -49,19 +46,17 @@ To run tests, run the following command
 
 ## Features
 
-- Displays a calender view for the month of July 2022
+- Displays a calender view for the year of 2022
 - Visual representations of the current, scheduled and unscheduled day(s)
 - Ability to click on a scheduled day to view the single event on that day
-- Legend to help the user identify the different tile colors
 
 
 ## Future Features
 
 - Ability to add events
 - Ability for empty event detail popups to show "No event details" text
-- Ability to view event type and/or description on each scheduled day on calendar view
-- Ability to view and scroll through all months of the year 
 - Integration of the frontend with a backend so data can be saved, accessed and deleted 
+
 ## Screenshots
 
 ![Calendar App](CalendarApp.PNG)

@@ -20,3 +20,9 @@
   padding-bottom: 20px;
   border: 2px solid grey;
 }
+
+@media (max-width: 448px) {
+  .calendar-container {
+    height: 80vh;
+  }
+}

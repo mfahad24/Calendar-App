@@ -44,7 +44,7 @@ export const getFinalTotalEmptyAndFilledCellsInCurrentMonth = (
     selectedMonth
   ).map((day) => {
     if (day <= numberOfEmptyTiles) {
-      return allEmptyAndFilledTilesInCurrentMonth.push(0);
+      return allEmptyAndFilledTilesInCurrentMonth.push(null);
     } else {
       return allEmptyAndFilledTilesInCurrentMonth.push(
         (day -= numberOfEmptyTiles)
