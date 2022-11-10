@@ -1,27 +1,33 @@
 const allEvents = [
   {
-    name: "Matthew Stafford",
-    date: "08-04-2022",
-    description: "A day off from training camp",
-    type: "Day Off",
+    date: "07-04-2022",
+    description:
+      "Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa",
+    type: "Day off",
   },
   {
-    name: "Aaron Donald",
-    date: "07-15-2022",
-    description: "It is time to get ready for the season",
+    date: "08-15-2022",
+    description:
+      "Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa",
     type: "Workout",
   },
   {
-    name: "Jalen Ramsey",
-    date: "08-30-2022",
-    description: "A regular checkup with your doctor",
-    type: "Doctor's Appointment with Dr. Football",
+    date: "09-30-2022",
+    description:
+      "Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa",
+    type: "Doctor appointment",
   },
   {
-    name: "Allen Robinson",
-    date: "09-08-2022",
-    description: "Today is a game vs. the Buffallo Bills",
-    type: "Football is back baby!",
+    date: "10-08-2022",
+    description:
+      "Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa",
+    type: "Start of football",
+  },
+  {
+    date: "11-06-2022",
+    description:
+      "Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa",
+    type: "Return to football",
   },
 ];
 

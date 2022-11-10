@@ -3,15 +3,20 @@ import "./EventDetails.css";
 import allEvents from "../../data/AllEvents";
 import { getMonthNumberConvertedToMonthName } from "../../utils/CalendarCalculations";
 
+// material ui imports
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import CloseIcon from '@mui/icons-material/Close';
+
 interface EventDetailsProps {
   clickedDayNumber: Number;
-  setShowEventDetails: Function;
+  setPopupModalVisible: Function;
   selectedMonth: String;
 }
 
 const EventDetails: React.FC<EventDetailsProps> = ({
   clickedDayNumber,
-  setShowEventDetails,
+  setPopupModalVisible,
   selectedMonth,
 }): ReactElement => {
   return (
@@ -36,31 +41,16 @@ const EventDetails: React.FC<EventDetailsProps> = ({
               return (
                 <div key={`event-details-${index}`}>
                   <div
-                    key={`event-details__type-${index}`}
-                    className="event-details__type"
-                  >
-                    <strong key={`event-details-type-pre-text}`}>
-                      Event:
-                    </strong>
-                    {event.type}
-                  </div>
-                  <div
                     key={`event-details__date-${index}`}
                     className="event-details__date"
                   >
-                    <strong>Date: </strong> {event.date}
-                  </div>
-                  <div
-                    key={`event-details__name-${index}`}
-                    className="event-details__name"
-                  >
-                    <strong>Name: </strong> {event.name}
+                    {event.date}
                   </div>
                   <div
                     key={`event-details__description-${index}`}
                     className="event-details__description"
                   >
-                    <strong>Description: </strong> {event.description}
+                    {event.description}
                   </div>
                 </div>
               );
@@ -68,12 +58,7 @@ const EventDetails: React.FC<EventDetailsProps> = ({
               return;
             }
           })}
-          <button
-            className="event-details__close"
-            onClick={() => setShowEventDetails(false)}
-          >
-            close
-          </button>
+          <CloseIcon className="event-details__close" onClick={() => setPopupModalVisible(false)}/>
         </div>
       </div>
     </>

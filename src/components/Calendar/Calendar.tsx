@@ -1,11 +1,13 @@
 //react imports
 import React, { useState, useEffect, ReactElement } from "react";
+
 //all component imports
 import MonthName from "../MonthName/MonthName";
 import EventDetails from "../EventDetails/EventDetails";
 import AllDaysOfTheWeek from "../AllDaysOfTheWeek/AllDaysOfTheWeek";
 import AllDayNumbersOfTheWeek from "../AllDayNumbersOfTheWeek/AllDayNumbersOfTheWeek";
 import AllMonthButtons from "../AllMonthButtons/AllMonthButtons";
+import PopupModal from "../PopupModal/PopupModal";
 
 //util/data imports
 import {
@@ -22,14 +24,15 @@ const Calendar: React.FC = (): ReactElement => {
   const [allScheduledDayNumbers, setAllScheduledDayNumbers] = useState<
     Number[]
   >([]);
-  const [showEventDetails, setShowEventDetails] = useState<boolean>(false);
+  const [popupModalVisible, setPopupModalVisible] = useState<boolean>(false);
   const [clickedDayNumber, setClickedDayNumber] = useState<Number>(0);
   const [widthDimension, setWidthDimension] = useState<Number>(
     window.innerWidth
   );
-  const [selectedMonth, setSelectedMonth] = useState<string>("August");
+  const [selectedMonth, setSelectedMonth] = useState<string>("");
 
   useEffect(() => {
+    setSelectedMonth(getMonthName()); //set current month on mount
     function handleResize() {
       setWidthDimension(window.innerWidth);
     }
@@ -38,6 +41,7 @@ const Calendar: React.FC = (): ReactElement => {
   }, []);
 
   useEffect(() => {
+    setAllScheduledDayNumbers([]); // reset all scheduled days array when changing months
     allEvents.forEach((event) => {
       let eventDayMonth = Number(event.date.split("").slice(0, 2).join(""));
       let eventDayNumber = Number(event.date.split("").slice(3, 5).join(""));
@@ -49,14 +53,12 @@ const Calendar: React.FC = (): ReactElement => {
 
   const triggerEventDetailsPopup = (currentDayNumber: Number) => {
     setClickedDayNumber(currentDayNumber);
-    setShowEventDetails(true);
+    setPopupModalVisible(true);
   };
 
   const renderConditionalClasses = (day: Number) => {
-    if (
-      allScheduledDayNumbers.includes(day) &&
-      selectedMonth === getMonthName()
-    )
+    console.log(allScheduledDayNumbers);
+    if (allScheduledDayNumbers.includes(day))
       return " calendar-day-numbers__day-number--scheduled";
     if (getCurrentDayNumber() === day && selectedMonth === getMonthName())
       return " calendar-day-numbers__day-number--today";
@@ -67,15 +69,18 @@ const Calendar: React.FC = (): ReactElement => {
 
   return (
     <>
-      {showEventDetails && (
+      {popupModalVisible && (
         <EventDetails
           clickedDayNumber={clickedDayNumber}
-          setShowEventDetails={setShowEventDetails}
+          setPopupModalVisible={setPopupModalVisible}
           selectedMonth={selectedMonth}
         />
       )}
       <div className="calendar-container">
-        <MonthName selectedMonth={selectedMonth} />
+        <MonthName
+          selectedMonth={selectedMonth}
+          setPopupModalVisible={setPopupModalVisible}
+        />
         <AllDaysOfTheWeek widthDimension={widthDimension} />
         <AllDayNumbersOfTheWeek
           selectedMonth={selectedMonth}

@@ -6,9 +6,7 @@
 .calendar-container {
   display: flex;
   flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 20px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   border-radius: 10px;
   width: 95vw;
   height: 90vh;
@@ -18,7 +16,6 @@
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   padding-bottom: 20px;
-  border: 2px solid grey;
 }
 
 @media (max-width: 448px) {

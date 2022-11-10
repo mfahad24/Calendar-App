@@ -12,7 +12,7 @@ test("event details screen rendered with August 4 event details", () => {
   render(
     <EventDetails
       clickedDayNumber={4}
-      setShowEventDetails={true}
+      setPopupModalVisible={true}
       selectedMonth={"August"}
     />
   );
@@ -24,7 +24,7 @@ test("event details screen rendered with August 30 event details", () => {
   render(
     <EventDetails
       clickedDayNumber={30}
-      setShowEventDetails={true}
+      setPopupModalVisible={true}
       selectedMonth={"August"}
     />
   );

@@ -1,7 +1,7 @@
 .title-container {
   text-align: left;
   font-size: 40px;
-  margin: 10px 0px 0px 60px;
+  margin: 10px 60px 0px 60px;
   padding-bottom: 10px;
   border-bottom: 4px solid red;
   display: flex;
@@ -9,9 +9,16 @@
   justify-content: space-between;
 }
 
+.add-event-btn {
+  cursor: pointer; 
+  font-weight: bold; 
+  font-size: 30px !important; 
+}
+
 /* mobile media queries  */
 @media (max-width: 448px) {
   .title-container {
-    margin-left: 20px;
+    font-size: 30px; 
+    margin: 10px 20px 0px 20px;
   }
 }

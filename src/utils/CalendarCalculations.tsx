@@ -51,7 +51,7 @@ export const getFinalTotalEmptyAndFilledCellsInCurrentMonth = (
       );
     }
   });
-  return allEmptyAndFilledTilesInCurrentMonth;
+  return allEmptyAndFilledTilesInCurrentMonth
 };
 
 export const getClickedMonthValueForCurrentDateCalculation = (month: string) => {
