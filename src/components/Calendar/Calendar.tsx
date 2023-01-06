@@ -57,7 +57,6 @@ const Calendar: React.FC = (): ReactElement => {
   };
 
   const renderConditionalClasses = (day: Number) => {
-    console.log(allScheduledDayNumbers);
     if (allScheduledDayNumbers.includes(day))
       return " calendar-day-numbers__day-number--scheduled";
     if (getCurrentDayNumber() === day && selectedMonth === getMonthName())
@@ -69,13 +68,13 @@ const Calendar: React.FC = (): ReactElement => {
 
   return (
     <>
-      {popupModalVisible && (
+      {popupModalVisible === true ? (
         <EventDetails
           clickedDayNumber={clickedDayNumber}
           setPopupModalVisible={setPopupModalVisible}
           selectedMonth={selectedMonth}
         />
-      )}
+      ) : null}
       <div className="calendar-container">
         <MonthName
           selectedMonth={selectedMonth}

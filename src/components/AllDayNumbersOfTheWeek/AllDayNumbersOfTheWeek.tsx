@@ -1,6 +1,9 @@
 import React, { ReactElement } from "react";
 import EventTypeInTile from "../EventTypeInTile/EventTypeInTile";
-import { getFinalTotalEmptyAndFilledCellsInCurrentMonth } from "../../utils/CalendarCalculations";
+import {
+  getFinalTotalEmptyAndFilledCellsInCurrentMonth,
+  getCurrentYear,
+} from "../../utils/CalendarCalculations";
 import "./AllDayNumbersOfTheWeek.css";
 
 interface AllDayNumbersOfTheWeekProps {
@@ -20,7 +23,7 @@ const AllDayNumbersOfTheWeek: React.FC<AllDayNumbersOfTheWeekProps> = ({
     <>
       <div className="calendar-day-numbers">
         {getFinalTotalEmptyAndFilledCellsInCurrentMonth(
-          `${selectedMonth} 1, 2022`,
+          `${selectedMonth} 1, ${getCurrentYear()}`,
           selectedMonth
         ).map((day: any, index: Number) => {
           return (
